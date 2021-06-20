@@ -6,3 +6,11 @@ scrape_configs:
 
     static_configs:
       - targets: ["localhost:9090"]
+
+  - job_name: myapp
+
+    scrape_interval: 5s
+  
+    static_configs:
+    - targets:
+      - dockerhost:2112
