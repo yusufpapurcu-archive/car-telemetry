@@ -11,7 +11,7 @@ services:
     ports:
       - 9090:9090
     extra_hosts:
-      - "dockerhost:192.168.0.16" #We must bind docker host to our local ip
+      - "dockerhost:192.168.0.17" #We must bind docker host to our local ip
 
   grafana:
     image: grafana/grafana:7.3.6
