@@ -5,15 +5,19 @@ services:
     image: prom/prometheus:v2.21.0
     volumes:
       - ./prometheus/:/etc/prometheus/
+      - ./prometheus_data:/prometheus
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
     ports:
       - 9090:9090
     extra_hosts:
-      - "dockerhost:192.168.0.17" #We must bind docker host to our local ip
+      - "dockerhost:192.168.42.84" #We must bind docker host to our local ip
 
   grafana:
     image: grafana/grafana:7.3.6
+    volumes:
+      - ./grafana_data/:/var/lib/grafana/
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
     ports:
       - 3000:3000
